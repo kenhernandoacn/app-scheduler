@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Add Event Dialog</h1>
+ <div mat-dialog-content>
+ <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CN Number</mat-label>
+        <input matInput placeholder="CNXXXXXXX" value="CN123456">
+    </mat-form-field><br/>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Add Description</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+        
+  </form>
+ </div>
+ <div mat-dialog-actions>
+ <button mat-button (click)="submitForm()">Submit</button>
+ </div>
