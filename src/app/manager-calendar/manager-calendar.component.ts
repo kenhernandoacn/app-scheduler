@@ -4,6 +4,7 @@ import { CalendarOptions, EventInput, EventSourceInput, FullCalendarComponent } 
 import { AddEventExtComponent } from '../dialog/add-event-ext/add-event.component';
 import { AddEventComponent } from '../dialog/add-event/add-event.component';
 import { ViewMapComponent } from '../dialog/view-map/view-map.component';
+import { MockDataService } from '../mock-data.service';
 
 @Component({
   selector: 'app-manager-calendar',
@@ -13,10 +14,10 @@ import { ViewMapComponent } from '../dialog/view-map/view-map.component';
 export class ManagerCalendarComponent implements OnInit {
 
   @ViewChild('sampleCalendar') sampleCalendar!: FullCalendarComponent;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public mockDataService: MockDataService) { }
 
   calendarOptions: CalendarOptions = {
-    weekends: true, // initial value
+    weekends: true, 
     expandRows: true,
     selectable: true,
     dayMaxEvents: true,
@@ -25,19 +26,20 @@ export class ManagerCalendarComponent implements OnInit {
       left: 'dayGridMonth,timeGridWeek,timeGridDay',
       center: 'title',
       right: 'prevYear,prev,next,nextYear',
- 
     },
-    // dateClick: this.handleDateClick.bind(this), // bind is important!
     events: [
       { title: 'CN999140', date: '2022-08-01', description: 'Manager 1'},
       { title: 'CN999141', date: '2022-08-02', description: 'Manager 2'},
       { title: 'CN999141', date: '2022-08-03', description: 'Manager 3'},
     ],
-    dateClick: this.viewMap.bind(this), // bind is important!
+    dateClick: this.viewMap.bind(this),
     eventClick: this.onEventClick.bind(this)
   };
 
   ngOnInit(): void {
+    this.mockDataService.getMockData().subscribe((res)=> {
+      console.log(res);
+    });
   }
 
   handleDateClick(arg: any) {
@@ -97,13 +99,8 @@ export class ManagerCalendarComponent implements OnInit {
     ]
   }
 
-  // addMock() {
-  //    this.calendarOptions.events = [
-  //     { title: 'CN999140', date: '2022-08-01', description: 'Manager 1'},
-  //     { title: 'CN999141', date: '2022-08-02', description: 'Manager 2'},
-  //     { title: 'CN999141', date: '2022-08-03', description: 'Manager 3'},
-  //     { title: 'CN999140', date: '2022-08-05', description: 'Manager 1'}
-  //     ];
-  // }
+  mapResponseToEvents(response: any) {
+    console.log(response);
+  }
 
 }

@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { HomeComponent } from './home/home.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { ViewMapComponent } from './dialog/view-map/view-map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -50,7 +51,8 @@ FullCalendarModule.registerPlugins([
     MatInputModule,
     MatTableModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    HttpClientModule
   ],
   entryComponents: [
     AddEventComponent,
