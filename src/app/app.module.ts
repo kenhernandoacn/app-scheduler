@@ -14,9 +14,12 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { AddEventExtComponent } from './dialog/add-event-ext/add-event.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { HomeComponent } from './home/home.component';
+import { BacklogComponent } from './backlog/backlog.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -29,7 +32,9 @@ FullCalendarModule.registerPlugins([
     AppComponent,
     ManagerCalendarComponent,
     AddEventComponent,
-    AddEventExtComponent
+    AddEventExtComponent,
+    HomeComponent,
+    BacklogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ FullCalendarModule.registerPlugins([
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    MatTableModule,
     MatNativeDateModule,
     MatDatepickerModule
   ],
