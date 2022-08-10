@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CalendarOptions, EventInput, EventSourceInput, FullCalendarComponent } from '@fullcalendar/angular';
 import { AddEventExtComponent } from '../dialog/add-event-ext/add-event.component';
 import { AddEventComponent } from '../dialog/add-event/add-event.component';
+import { ViewMapComponent } from '../dialog/view-map/view-map.component';
 
 @Component({
   selector: 'app-manager-calendar',
@@ -32,7 +33,7 @@ export class ManagerCalendarComponent implements OnInit {
       { title: 'CN999141', date: '2022-08-02', description: 'Manager 2'},
       { title: 'CN999141', date: '2022-08-03', description: 'Manager 3'},
     ],
-    dateClick: this.addEvent.bind(this), // bind is important!
+    dateClick: this.viewMap.bind(this), // bind is important!
   };
 
   ngOnInit(): void {
@@ -56,6 +57,16 @@ export class ManagerCalendarComponent implements OnInit {
     const subscribeDialog = dialogRef.componentInstance.addEventDialog.subscribe((data) => {
       console.log('dialog data', data);
       this.calendarOptions.events = data;
+    });
+  }
+
+  
+  viewMap() {
+    let dialogRef = this.dialog.open(ViewMapComponent, {
+      height: '600px',
+      width: '800px',
+    });
+    dialogRef.afterClosed().subscribe((data)=> {
     });
   }
 
