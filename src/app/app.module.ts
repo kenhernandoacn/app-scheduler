@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { ViewMapComponent } from './dialog/view-map/view-map.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditEventComponent } from './dialog/edit-event/edit-event.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -37,7 +38,8 @@ FullCalendarModule.registerPlugins([
     AddEventExtComponent,
     HomeComponent,
     BacklogComponent,
-    ViewMapComponent
+    ViewMapComponent,
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
