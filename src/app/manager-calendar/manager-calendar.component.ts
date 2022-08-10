@@ -34,6 +34,7 @@ export class ManagerCalendarComponent implements OnInit {
       { title: 'CN999141', date: '2022-08-03', description: 'Manager 3'},
     ],
     dateClick: this.viewMap.bind(this), // bind is important!
+    eventClick: this.onEventClick.bind(this)
   };
 
   ngOnInit(): void {
@@ -44,6 +45,10 @@ export class ManagerCalendarComponent implements OnInit {
   }
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
+  }
+
+  onEventClick() {
+    alert("event clicked")
   }
 
   addEvent() {
